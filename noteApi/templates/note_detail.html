@@ -1,0 +1,32 @@
+{% extends 'note_base.html' %}
+{% block title %}
+    {% if new %}New Note{% else %}Note{% endif %}
+{% endblock %}
+{% block content %}
+    <div class="section">
+        <div class="row">
+            <form class="col s12" method="post" action="">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" type="text" data-length="10" name="title" {% if not new %}value={{ note.title }}{% endif %}>
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 row s6">
+                        <textarea id="data" class="materialize-textarea" data-length="120" name="data">{% if not new %}{{ note.content }}{% endif %}</textarea>
+                        <label for="data">Data</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 row s6">
+                        <button class="waves-effect waves-light btn-large" type="submit" name="submit">Save</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

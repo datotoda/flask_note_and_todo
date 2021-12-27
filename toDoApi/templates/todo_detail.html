@@ -1,0 +1,46 @@
+{% extends 'todo_base.html' %}
+{% block title %}
+    To Do
+{% endblock %}
+{% block content %}
+    <div class="section">
+        <div class="row">
+            <form class="col s12" method="post" action="">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" type="text" data-length="10" name="title" value={{ todo.title }}>
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+
+                {% for task in todo.tasks %}
+                    <p>
+                        <label>
+                            <input type="checkbox" name="checkbox_{{ task.task_id }}" {% if task.checked %}
+                                   checked="checked" {% endif %} />
+                            <span><textarea id="data" class="materialize-textarea" data-length="520"
+                                            name="task_{{ task.task_id }}">{{ task.task }}</textarea></span>
+                        </label>
+                    </p>
+                {% endfor %}
+
+
+
+
+                <div class="row">
+                    <div class="input-field col ">
+                        <button class="waves-effect waves-light btn-large" type="submit" name="new_task_button">New
+                            Task
+                        </button>
+                    </div>
+                    <div class="input-field col ">
+                        <button class="waves-effect waves-light btn-large" type="submit" name="save_button">Save
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

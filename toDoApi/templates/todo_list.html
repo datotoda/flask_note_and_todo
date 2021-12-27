@@ -1,0 +1,17 @@
+{% extends 'todo_base.html' %}
+{% block title %}
+    To Do List
+{% endblock %}
+{% block content %}
+    {% for todo in todos %}
+        <div class="divider"></div>
+        <div class="section">
+            <h5><a href="./{{ todo.link }}">{{ todo.title }}</a></h5>
+            {% for task in todo.tasks %}
+                {% if not task.checked %}
+                    <p>{{ task.task }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

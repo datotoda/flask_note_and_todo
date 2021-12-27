@@ -1,0 +1,24 @@
+{% extends 'todo_base.html' %}
+{% block title %}
+    New To Do
+{% endblock %}
+{% block content %}
+    <div class="section">
+        <div class="row">
+            <form class="col s12" method="post" action="">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" type="text" data-length="10" name="title">
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 row s6">
+                        <button class="waves-effect waves-light btn-large" type="submit" name="submit">Next</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
